@@ -11,9 +11,9 @@ export default function RootLayout({ children }){
           <div className="container flex items-center justify-between py-3">
             <a href="/" className="font-semibold">Nom de l’Artiste</a>
             <nav className="nav flex items-center gap-4">
-              <a href="#galerie">Galerie</a>
-              <a href="#expo">Expo</a>
-              <a href="#bio">Bio</a>
+              <a href="/#galerie">Galerie</a>
+              <a href="/#expo">Expo</a>
+              <a href="/#bio">Bio</a>
               <a href="/contact">Contact</a>
               <ThemeToggle />
             </nav>
