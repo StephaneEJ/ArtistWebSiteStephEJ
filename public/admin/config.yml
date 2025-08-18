@@ -1,0 +1,38 @@
+backend:
+  name: git-gateway
+  branch: main
+media_folder: "public/assets"
+public_folder: "/assets"
+publish_mode: editorial_workflow
+collections:
+  - label: "Site"
+    name: "site"
+    files:
+      - label: "Informations du site"
+        name: "siteinfo"
+        file: "public/site.json"
+        format: "json"
+        fields:
+          - { label: "Nom de l’artiste", name: "artistName", widget: "string" }
+          - { label: "Bio", name: "bio", widget: "text" }
+          - { label: "URL de la vidéo (YouTube embed)", name: "videoUrl", widget: "string" }
+          - label: "Réseaux sociaux"
+            name: "socials"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+  - label: "Galerie"
+    name: "gallery"
+    file: "public/gallery.json"
+    format: "json"
+    fields:
+      - label: "Œuvres"
+        name: "items"
+        widget: "list"
+        fields:
+          - { label: "Image", name: "src", widget: "image" }
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Texte alternatif (alt)", name: "alt", widget: "string", required: false }
+          - { label: "Légende", name: "caption", widget: "string", required: false }
+          - { label: "Slug", name: "slug", widget: "string" }

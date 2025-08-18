@@ -1,0 +1,53 @@
+{
+  "items": [
+    {
+      "src": "/assets/oeuvre1.jpg",
+      "title": "Éclats de lumière",
+      "alt": "Œuvre 1",
+      "caption": "Acrylique et textures — 2025",
+      "slug": "eclats-de-lumiere"
+    },
+    {
+      "src": "/assets/oeuvre2.jpg",
+      "title": "Silence intérieur",
+      "alt": "Œuvre 2",
+      "caption": "Minimalisme contemplatif",
+      "slug": "silence-interieur"
+    },
+    {
+      "src": "/assets/oeuvre3.jpg",
+      "title": "Mouvements d’encre",
+      "alt": "Œuvre 3",
+      "caption": "Gestuelle libre et matières",
+      "slug": "mouvements-d-encre"
+    },
+    {
+      "src": "/assets/oeuvre4.jpg",
+      "title": "Résonance",
+      "alt": "Œuvre 4",
+      "caption": "Harmoniques et échos visuels",
+      "slug": "resonance"
+    },
+    {
+      "src": "/assets/oeuvre5.jpg",
+      "title": "Fragments d’horizon",
+      "alt": "Œuvre 5",
+      "caption": "Paysage abstrait, lignes et champs",
+      "slug": "fragments-d-horizon"
+    },
+    {
+      "src": "/assets/oeuvre6.jpg",
+      "title": "Nocturne",
+      "alt": "Œuvre 6",
+      "caption": "Palette sombre, éclats discrets",
+      "slug": "nocturne"
+    },
+    {
+      "src": "/assets/oeuvre7.jpg",
+      "title": "Rythmes croisés",
+      "alt": "Œuvre 7",
+      "caption": "Superpositions et cadence rythmique",
+      "slug": "rythmes-croises"
+    }
+  ]
+}
