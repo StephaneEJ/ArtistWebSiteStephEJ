@@ -1,0 +1,7 @@
+[build]
+  # On dézippe puis on build
+  command = "unzip -o artist_next_site_web_800_netlify.zip -d . && npm install --no-audit --no-fund && npm run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
