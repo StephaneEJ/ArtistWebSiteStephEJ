@@ -48,6 +48,64 @@
       "alt": "Œuvre 7",
       "caption": "Superpositions et cadence rythmique",
       "slug": "rythmes-croises"
-    }
+    },
+
+{
+  "src": "/assets/serie-rouge-01.jpg",
+  "title": "Incandescence I",
+  "alt": "Portrait abstrait rouge I",
+  "caption": "Acrylique — Série Rouge (2025)",
+  "slug": "incandescence-1"
+},
+{
+  "src": "/assets/serie-rouge-02.jpg",
+  "title": "Incandescence II",
+  "alt": "Portrait abstrait rouge II",
+  "caption": "Acrylique — Série Rouge (2025)",
+  "slug": "incandescence-2"
+},
+{
+  "src": "/assets/serie-rouge-03.jpg",
+  "title": "Incandescence III",
+  "alt": "Portrait abstrait rouge III",
+  "caption": "Acrylique — Série Rouge (2025)",
+  "slug": "incandescence-3"
+},
+{
+  "src": "/assets/serie-rouge-04.jpg",
+  "title": "Incandescence IV",
+  "alt": "Portrait abstrait rouge IV",
+  "caption": "Acrylique — Série Rouge (2025)",
+  "slug": "incandescence-4"
+},
+{
+  "src": "/assets/serie-verte-01.jpg",
+  "title": "Émeraude I",
+  "alt": "Abstraction circulaire verte I",
+  "caption": "Acrylique — Série Verte (2025)",
+  "slug": "emeraude-1"
+},
+{
+  "src": "/assets/serie-verte-02.jpg",
+  "title": "Émeraude II",
+  "alt": "Portrait/abstraction verte II",
+  "caption": "Acrylique — Série Verte (2025)",
+  "slug": "emeraude-2"
+},
+{
+  "src": "/assets/serie-verte-03.jpg",
+  "title": "Émeraude III",
+  "alt": "Abstraction circulaire verte III",
+  "caption": "Acrylique — Série Verte (2025)",
+  "slug": "emeraude-3"
+},
+{
+  "src": "/assets/serie-verte-04.jpg",
+  "title": "Émeraude IV",
+  "alt": "Abstraction circulaire verte IV",
+  "caption": "Acrylique — Série Verte (2025)",
+  "slug": "emeraude-4"
+}
+    
   ]
 }
