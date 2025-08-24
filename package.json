@@ -13,7 +13,12 @@
     "deploy": "next build",
     "ingest:images": "node scripts/ingest-images.mjs",
     "gen:sitemap": "node scripts/generate-sitemap.mjs",
-    "start": "next start"
+    "start": "next start",
+    "ingest": "node scripts/ingest-images.mjs",
+    "sitemap": "node scripts/generate-sitemap.mjs",
+    "build": "next build",
+    "export": "next export",
+    "deploy": "npm run ingest && npm run sitemap && next build && next export"
   },
   "dependencies": {
     "next": "14.2.10",
