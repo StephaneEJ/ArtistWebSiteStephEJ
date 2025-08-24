@@ -1,5 +1,4 @@
 import Gallery from "../components/Gallery";
-import SiteVideo from "../components/SiteVideo";
 import SiteBio from "../components/SiteBio";
 
 export default function Page(){
@@ -11,7 +10,6 @@ export default function Page(){
         <a href="#galerie" className="btn">Voir la galerie</a>
       </section>
       <section id="galerie"><h2 className="text-2xl font-semibold mb-4">Galerie</h2><Gallery /></section>
-      <section id="expo"><h2 className="text-2xl font-semibold mb-4">Expo (vidéo)</h2><SiteVideo /></section>
       <section id="bio"><h2 className="text-2xl font-semibold mb-4">Bio</h2><SiteBio /></section>
     </div>
   );

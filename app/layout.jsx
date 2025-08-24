@@ -3,9 +3,8 @@ export const metadata = { title: "Portfolio – Artiste", description: "Galerie,
 export default function RootLayout({ children }){
   const version = pkg.version || 'dev';
   return (
-    <html lang="fr" suppressHydrationWarning>
+    <html lang="fr" className="dark">
       <head>
-        <script dangerouslySetInnerHTML={{__html:`(function(){try{const ls=localStorage.getItem('theme');const m=window.matchMedia('(prefers-color-scheme: dark)');const d=ls==='dark'||(!ls&&m.matches);document.documentElement.classList.toggle('dark',d);}catch(e){}})();`}} />
         <script defer data-domain="auraoncanvas.art" src="https://plausible.io/js/script.js"></script>
       </head>
       <body className="min-h-screen">
@@ -15,10 +14,8 @@ export default function RootLayout({ children }){
             <a href="/" className="font-semibold">AuraOnCanvas.art</a>
             <nav className="nav flex items-center gap-4">
               <a href="/#galerie">Galerie</a>
-              <a href="/#expo">Expo</a>
               <a href="/#bio">Bio</a>
               <a href="/contact">Contact</a>
-              <ThemeToggle />
             </nav>
           </div>
         </div>
