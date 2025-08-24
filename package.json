@@ -7,6 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "export": "next export",
+    "postbuild": "if [ -f public/_redirects ]; then mkdir -p out && cp public/_redirects out/_redirects; fi",
     "deploy": "next build",
     "start": "next start"
   },
