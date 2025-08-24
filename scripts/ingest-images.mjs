@@ -161,6 +161,56 @@ async function main() {
     });
   }
 
+  // Si aucun RAW n'a été trouvé, construire un manifest à partir de public/images/works (fallback)
+  if (rawFiles.length === 0) {
+    const publicRoot = path.join(process.cwd(), 'public', 'images', 'works');
+    const slugDirs = await fg('*', { cwd: publicRoot, onlyDirectories: true });
+
+    // Charger works.json existant pour récupérer titres/etsyId si disponibles
+    let existingWorks = [];
+    try {
+      const raw = await fs.readFile(path.join(process.cwd(), 'data', 'works.json'), 'utf8');
+      existingWorks = JSON.parse(raw);
+    } catch (_) {}
+    const slugToMeta = new Map(existingWorks.map(w => [w.slug, { title: w.title || w.slug, etsyId: w.etsyId || '' }]));
+
+    for (const slug of slugDirs) {
+      const files = await fg('*', { cwd: path.join(publicRoot, slug), onlyFiles: true });
+      const thumbByBase = new Map();
+      const bases = new Set();
+
+      for (const f of files) {
+        const thumbMatch = f.match(new RegExp(`^${slug}-M(\\d+)-thumb(\\d+)\\.webp$`));
+        if (thumbMatch) {
+          const mock = parseInt(thumbMatch[1], 10);
+          const baseName = `${slug}-M${mock}`;
+          thumbByBase.set(baseName, f);
+        }
+        const baseMatch = f.match(new RegExp(`^(${slug}-M\\d+)-w(\\d+)\\.(webp|jpg)$`));
+        if (baseMatch) {
+          bases.add(baseMatch[1]);
+        }
+      }
+
+      const meta = slugToMeta.get(slug) || { title: slug, etsyId: '' };
+      if (!manifest[slug]) manifest[slug] = { title: meta.title, etsyId: meta.etsyId, variants: [] };
+
+      for (const baseName of Array.from(bases)) {
+        const mockMatch = baseName.match(/-M(\d+)$/);
+        const mock = mockMatch ? parseInt(mockMatch[1], 10) : 0;
+        const thumbFile = thumbByBase.get(baseName) || null;
+        manifest[slug].variants.push({
+          mock,
+          baseName,
+          // srcsets ne sont pas nécessaires pour l’UI actuelle; ResponsiveImage les reconstruit
+          srcsetWebp: [],
+          srcsetJpg: [],
+          thumb: thumbFile ? buildPublicPath(slug, thumbFile) : buildPublicPath(slug, `${baseName}-w800.jpg`)
+        });
+      }
+    }
+  }
+
   // Trier les variants par n° de mock pour stabilité
   for (const slug of Object.keys(manifest)) {
     manifest[slug].variants.sort((a, b) => a.mock - b.mock);
