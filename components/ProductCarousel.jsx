@@ -44,19 +44,27 @@ export default function ProductCarousel({ slug, title }){
 	// Use utility functions for srcset and base image
 	const webpSet = buildSrcSet(active?.srcsetWebp);
 	const jpgSet = buildSrcSet(active?.srcsetJpg);
-	const base = findBaseImage(active?.srcsetJpg, '800');
+	
+	// Fallback to thumbnail if no srcset available
+	const hasSrcset = webpSet || jpgSet;
+	const base = hasSrcset ? findBaseImage(active?.srcsetJpg, '800') : active?.thumb;
 
 	return (
 		<div className="space-y-3" aria-roledescription="carousel" aria-label="Galerie produit">
 			{/* Stage container: relative w-full max-w-screen-lg mx-auto aspect-[3/4] md:aspect-[4/5] */}
 			<div className="relative w-full max-w-screen-lg mx-auto aspect-[3/4] md:aspect-[4/5]">
 				{base ? (
-					<picture className="absolute inset-0 w-full h-full">
-						<source type="image/webp" srcSet={webpSet} sizes="(min-width:1280px) 900px, (min-width:768px) 720px, 94vw" />
-						<source type="image/jpeg" srcSet={jpgSet} sizes="(min-width:1280px) 900px, (min-width:768px) 720px, 94vw" />
-						{/* Slide image: absolute inset-0 w-full h-full object-contain */}
+					hasSrcset ? (
+						<picture className="absolute inset-0 w-full h-full">
+							<source type="image/webp" srcSet={webpSet} sizes="(min-width:1280px) 900px, (min-width:768px) 720px, 94vw" />
+							<source type="image/jpeg" srcSet={jpgSet} sizes="(min-width:1280px) 900px, (min-width:768px) 720px, 94vw" />
+							{/* Slide image: absolute inset-0 w-full h-full object-contain */}
+							<img src={base} alt={title} className="absolute inset-0 w-full h-full object-contain" loading="lazy" decoding="async" />
+						</picture>
+					) : (
+						/* Fallback to thumbnail when no srcset available */
 						<img src={base} alt={title} className="absolute inset-0 w-full h-full object-contain" loading="lazy" decoding="async" />
-					</picture>
+					)
 				) : null}
 				<div className="sr-only">Image {safeIndex + 1}/{count}</div>
 				<div className="absolute inset-y-0 left-0 flex items-center">

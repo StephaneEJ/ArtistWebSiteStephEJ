@@ -1,4 +1,10 @@
-export const metadata = { title: "Portfolio – Artiste", description: "Galerie, bio et vidéo d’exposition", metadataBase: new URL('https://auraoncanvas.art') };
+import ThemeToggle from "../components/ThemeToggle";
+import "./globals.css";
+import CanonicalLink from "./CanonicalLink";
+import Footer from "../components/Footer";
+import pkg from "../package.json";
+
+export const metadata = { title: "Portfolio – Artiste", description: "Galerie, bio et vidéo d'exposition", metadataBase: new URL('https://auraoncanvas.art') };
 
 export default function RootLayout({ children }){
   const version = pkg.version || 'dev';
@@ -20,15 +26,8 @@ export default function RootLayout({ children }){
           </div>
         </div>
         <main className="container py-8">{children}</main>
-        <footer className="container py-8 border-t border-neutral-200 dark:border-neutral-800 text-sm text-neutral-600 dark:text-neutral-300">
-          © <span id="year"></span> AuraOnCanvas.art — Tous droits réservés · v{version}
-          <script dangerouslySetInnerHTML={{__html:"document.getElementById('year').textContent=new Date().getFullYear()"}} />
-        </footer>
+        <Footer version={version} />
       </body>
     </html>
   );
 }
-import ThemeToggle from "../components/ThemeToggle";
-import "./globals.css";
-import CanonicalLink from "./CanonicalLink";
-import pkg from "../package.json";
