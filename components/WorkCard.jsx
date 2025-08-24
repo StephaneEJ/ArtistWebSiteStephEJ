@@ -1,11 +1,9 @@
-'use client';
 import React from 'react';
 import { trackEtsyClick } from '../utils/analytics';
 import { buildSrcSet, findBaseImage } from '../utils/imageUtils';
 import EtsyButton from './EtsyButton';
-import manifest from '@/data/images.manifest.json';
 
-function pickHero(slug){
+function pickHero(slug, manifest){
   // Read manifest[work.slug]?.variants || []
   const variants = manifest?.[slug]?.variants || [];
   
@@ -28,13 +26,13 @@ function pickHero(slug){
   return sortedVariants.find(v => v.mock === 0) || sortedVariants[0];
 }
 
-export default function WorkCard({ work, manifestEntry }){
+export default function WorkCard({ work, manifest = {} }){
 	const slug = work.slug;
 	const title = work.title || slug;
 	const etsyId = work.etsyId || '';
 	const buyUrl = etsyId ? `https://www.etsy.com/listing/${etsyId}?utm_source=site&utm_medium=product&utm_campaign=buy_on_etsy` : (work.buyUrl || '');
 
-	const hero = pickHero(slug);
+	const hero = pickHero(slug, manifest);
 	
 	// Use utility functions for srcset and base image
 	const webpSet = buildSrcSet(hero?.srcsetWebp);

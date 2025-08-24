@@ -6,7 +6,7 @@ export default function Gallery({ works = [], manifest = {} }){
   return (
     <div className="grid-gallery">
       {works.map((work)=> (
-        <WorkCard key={work.slug} work={work} manifestEntry={manifest[work.slug]} />
+        <WorkCard key={work.slug} work={work} manifest={manifest} />
       ))}
     </div>
   );

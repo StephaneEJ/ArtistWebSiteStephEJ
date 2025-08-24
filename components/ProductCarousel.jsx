@@ -51,19 +51,19 @@ export default function ProductCarousel({ slug, title }){
 
 	return (
 		<div className="space-y-3" aria-roledescription="carousel" aria-label="Galerie produit">
-			{/* Stage container: relative w-full max-w-screen-lg mx-auto aspect-[3/4] md:aspect-[4/5] */}
-			<div className="relative w-full max-w-screen-lg mx-auto aspect-[3/4] md:aspect-[4/5]">
+			{/* Stage container: hauteur fixe, largeur variable qui s'adapte au ratio */}
+			<div className="relative w-full max-w-screen-lg mx-auto h-96 md:h-[500px] lg:h-[600px] flex items-center justify-center">
 				{base ? (
 					hasSrcset ? (
-						<picture className="absolute inset-0 w-full h-full">
+						<picture className="w-full h-full flex items-center justify-center">
 							<source type="image/webp" srcSet={webpSet} sizes="(min-width:1280px) 900px, (min-width:768px) 720px, 94vw" />
 							<source type="image/jpeg" srcSet={jpgSet} sizes="(min-width:1280px) 900px, (min-width:768px) 720px, 94vw" />
-							{/* Slide image: absolute inset-0 w-full h-full object-cover */}
-							<img src={base} alt={title} className="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" />
+							{/* Image: hauteur max 100%, largeur auto pour garder le ratio */}
+							<img src={base} alt={title} className="max-h-full w-auto object-contain" loading="lazy" decoding="async" />
 						</picture>
 					) : (
 						/* Fallback to thumbnail when no srcset available */
-						<img src={base} alt={title} className="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" />
+						<img src={base} alt={title} className="max-h-full w-auto object-contain" loading="lazy" decoding="async" />
 					)
 				) : null}
 				<div className="sr-only">Image {safeIndex + 1}/{count}</div>
