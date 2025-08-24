@@ -59,15 +59,19 @@ export default function WorkCard({ work, manifestEntry }){
 	return (
 		<figure className="card">
 			<a href={`/oeuvre/${slug}`} aria-label={title}>
-				{base ? (
-					<picture>
-						<source type="image/webp" srcSet={webpSet} sizes="(min-width:1024px) 400px, 90vw" />
-						<source type="image/jpeg" srcSet={jpgSet} sizes="(min-width:1024px) 400px, 90vw" />
-						<img src={base} alt={work.alt||title} loading="lazy" decoding="async" className="w-full" />
-					</picture>
-				) : (
-					<img src="/placeholder.png" alt={title} loading="lazy" className="w-full" />
-				)}
+				{/* Wrapper: relative aspect-[4/5] w-full overflow-hidden rounded-lg */}
+				<div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg">
+					{base ? (
+						<picture className="absolute inset-0 w-full h-full">
+							<source type="image/webp" srcSet={webpSet} sizes="(min-width:1024px) 400px, 90vw" />
+							<source type="image/jpeg" srcSet={jpgSet} sizes="(min-width:1024px) 400px, 90vw" />
+							{/* Image inside: absolute inset-0 w-full h-full object-cover */}
+							<img src={base} alt={work.alt||title} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover" />
+						</picture>
+					) : (
+						<img src="/placeholder.png" alt={title} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+					)}
+				</div>
 			</a>
 			<figcaption className="caption">
 				<div className="font-medium">{title}</div>

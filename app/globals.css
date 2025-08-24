@@ -7,7 +7,6 @@ body { @apply bg-white text-neutral-900 dark:bg-[#0f1115] dark:text-[#e9eef5]; }
 .btn { @apply inline-block bg-blue-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-blue-600 transition; }
 .grid-gallery { @apply grid gap-4 sm:grid-cols-2 md:grid-cols-3; }
 .card { @apply bg-white dark:bg-[#151924] border border-neutral-200 dark:border-neutral-800 rounded-lg overflow-hidden; }
-.card img { @apply w-full h-60 object-cover; }
 .caption { @apply text-sm text-neutral-600 dark:text-neutral-300 p-3; }
 .header { @apply sticky top-0 bg-white/70 dark:bg-[#0f1115]/70 backdrop-blur border-b border-neutral-200 dark:border-neutral-800; }
 .nav a { @apply text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition; }
