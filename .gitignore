@@ -26,3 +26,7 @@ Thumbs.db
 # Do not version heavy RAW files
 assets/raw/**
 !assets/raw/.keep
+
+# local backups
+*.zip
+*.z0*
