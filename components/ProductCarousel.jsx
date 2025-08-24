@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import { buildSrcSet, findBaseImage } from '../utils/imageUtils';
 import manifest from '@/data/images.manifest.json';
 
 export default function ProductCarousel({ slug, title }){
@@ -28,32 +29,10 @@ export default function ProductCarousel({ slug, title }){
 
 	const active = reorderedVariants[safeIndex];
 
-	// Build absolute paths for src/srcset and use width descriptors
-	const ensureAbsolutePath = (path) => {
-		if (!path) return '';
-		// Remove any relative path like images/works/... (must be /images/works/...)
-		return path.startsWith('/') ? path : `/${path}`;
-	};
-	
-	const buildSrcSet = (srcsetArray) => {
-		if (!Array.isArray(srcsetArray)) return '';
-		return srcsetArray
-			.map(src => {
-				const absolutePath = ensureAbsolutePath(src);
-				const widthMatch = src.match(/-w(\d+)\./);
-				const width = widthMatch ? widthMatch[1] : '';
-				return width ? `${absolutePath} ${width}w` : absolutePath;
-			})
-			.filter(Boolean)
-			.join(', ');
-	};
-	
+	// Use utility functions for srcset and base image
 	const webpSet = buildSrcSet(active?.srcsetWebp);
 	const jpgSet = buildSrcSet(active?.srcsetJpg);
-	
-	// Find base image (prefer 800w, fallback to first available)
-	const baseImage = active?.srcsetJpg?.find(src => /-w800\.jpg$/i.test(src)) || active?.srcsetJpg?.[0];
-	const base = ensureAbsolutePath(baseImage);
+	const base = findBaseImage(active?.srcsetJpg, '800');
 
 	return (
 		<div className="space-y-3" aria-roledescription="carousel" aria-label="Galerie produit">

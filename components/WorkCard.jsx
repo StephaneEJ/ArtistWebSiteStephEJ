@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { trackEtsyClick } from '../utils/analytics';
+import { buildSrcSet, findBaseImage } from '../utils/imageUtils';
 import EtsyButton from './EtsyButton';
 import manifest from '@/data/images.manifest.json';
 
@@ -29,32 +30,10 @@ export default function WorkCard({ work, manifestEntry }){
 
 	const hero = pickHero(slug);
 	
-	// Build absolute paths for src/srcset and use width descriptors
-	const ensureAbsolutePath = (path) => {
-		if (!path) return '';
-		// Remove any relative path like images/works/... (must be /images/works/...)
-		return path.startsWith('/') ? path : `/${path}`;
-	};
-	
-	const buildSrcSet = (srcsetArray) => {
-		if (!Array.isArray(srcsetArray)) return '';
-		return srcsetArray
-			.map(src => {
-				const absolutePath = ensureAbsolutePath(src);
-				const widthMatch = src.match(/-w(\d+)\./);
-				const width = widthMatch ? widthMatch[1] : '';
-				return width ? `${absolutePath} ${width}w` : absolutePath;
-			})
-			.filter(Boolean)
-			.join(', ');
-	};
-	
+	// Use utility functions for srcset and base image
 	const webpSet = buildSrcSet(hero?.srcsetWebp);
 	const jpgSet = buildSrcSet(hero?.srcsetJpg);
-	
-	// Find base image (prefer 800w, fallback to first available)
-	const baseImage = hero?.srcsetJpg?.find(src => /-w800\.jpg$/i.test(src)) || hero?.srcsetJpg?.[0];
-	const base = ensureAbsolutePath(baseImage);
+	const base = findBaseImage(hero?.srcsetJpg, '800');
 
 	return (
 		<figure className="card">
