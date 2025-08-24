@@ -6,6 +6,7 @@ export default function RootLayout({ children }){
     <html lang="fr" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{__html:`(function(){try{const ls=localStorage.getItem('theme');const m=window.matchMedia('(prefers-color-scheme: dark)');const d=ls==='dark'||(!ls&&m.matches);document.documentElement.classList.toggle('dark',d);}catch(e){}})();`}} />
+        <script defer data-domain="auraoncanvas.art" src="https://plausible.io/js/script.js"></script>
       </head>
       <body className="min-h-screen">
         <CanonicalLink />

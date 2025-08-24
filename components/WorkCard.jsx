@@ -1,5 +1,7 @@
 'use client';
 import React from 'react';
+import { trackEtsyClick } from '../utils/analytics';
+import EtsyButton from './EtsyButton';
 
 export default function WorkCard({ work, manifestEntry }){
 	const slug = work.slug;
@@ -23,7 +25,7 @@ export default function WorkCard({ work, manifestEntry }){
 				<div className="font-medium">{title}</div>
 				<div className="mt-2 flex gap-3">
 					<a href={`/oeuvre/${slug}`} className="btn btn-sm">Voir</a>
-					{buyUrl && <a href={buyUrl} className="btn btn-sm" target="_blank" rel="noopener noreferrer">Acheter sur Etsy</a>}
+					{buyUrl && <EtsyButton href={buyUrl} slug={slug} where="card" className="btn btn-sm">Acheter sur Etsy</EtsyButton>}
 				</div>
 			</figcaption>
 		</figure>

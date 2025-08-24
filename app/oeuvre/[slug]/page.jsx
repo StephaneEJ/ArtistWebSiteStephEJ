@@ -1,5 +1,7 @@
 import fs from 'fs'; import path from 'path';
 import ProductCarousel from '../../../components/ProductCarousel';
+import { trackEtsyClick } from '../../../utils/analytics';
+import BuyEtsyButton from './BuyEtsyButton';
 
 function readJSON(p){ const raw=fs.readFileSync(p,'utf-8'); return JSON.parse(raw); }
 function getWorks(){ const p=path.join(process.cwd(),'data','works.json'); try{ return readJSON(p);}catch(e){ return []; } }
@@ -36,7 +38,7 @@ export default function Page({params}){
         {it.alt && <p className="text-neutral-600 dark:text-neutral-300">{it.alt}</p>}
         <div className="flex gap-3 pt-2">
           <a href="/" className="btn">← Retour</a>
-          {buyUrl && <a href={buyUrl} className="btn" target="_blank" rel="noopener noreferrer">Acheter sur Etsy</a>}
+          {buyUrl && <BuyEtsyButton href={buyUrl} slug={params.slug} />}
         </div>
       </div>
     </article>
