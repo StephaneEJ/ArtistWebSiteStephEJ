@@ -1,12 +1,11 @@
 export const metadata = { title: "Portfolio – Artiste", description: "Galerie, bio et vidéo d’exposition", metadataBase: new URL('https://auraoncanvas.art') };
 
 export default function RootLayout({ children }){
-  const version = process.env.NEXT_PUBLIC_APP_VERSION || 'dev';
+  const version = pkg.version || 'dev';
   return (
     <html lang="fr" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{__html:`(function(){try{const ls=localStorage.getItem('theme');const m=window.matchMedia('(prefers-color-scheme: dark)');const d=ls==='dark'||(!ls&&m.matches);document.documentElement.classList.toggle('dark',d);}catch(e){}})();`}} />
-        <script dangerouslySetInnerHTML={{__html:`(function(){try{var h=location.hostname;var isCom=h==='auraoncanvas.com'||h==='www.auraoncanvas.com';var isWwwArt=h==='www.auraoncanvas.art';var needsHttps=location.protocol==='http:'&&(h.endsWith('auraoncanvas.art')||h.endsWith('auraoncanvas.com'));if(isCom||isWwwArt||needsHttps){var path=location.pathname+location.search+location.hash;location.replace('https://auraoncanvas.art'+(path||'/'));}}catch(e){}})();`}} />
       </head>
       <body className="min-h-screen">
         <CanonicalLink />
@@ -34,3 +33,4 @@ export default function RootLayout({ children }){
 import ThemeToggle from "../components/ThemeToggle";
 import "./globals.css";
 import CanonicalLink from "./CanonicalLink";
+import pkg from "../package.json";
