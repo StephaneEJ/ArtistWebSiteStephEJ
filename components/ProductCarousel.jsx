@@ -51,8 +51,8 @@ export default function ProductCarousel({ slug, title }){
 
 	return (
 		<div className="space-y-3" aria-roledescription="carousel" aria-label="Galerie produit">
-			{/* Stage container: largeur fixe, hauteur adaptative qui s'adapte au ratio de l'image */}
-			<div className="relative w-full max-w-screen-lg mx-auto bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden">
+			{/* Stage container: aucune contrainte de hauteur, s'adapte au ratio de l'image */}
+			<div className="relative w-full">
 				{base ? (
 					hasSrcset ? (
 						<picture className="w-full h-auto">
