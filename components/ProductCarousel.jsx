@@ -28,19 +28,43 @@ export default function ProductCarousel({ slug, title }){
 
 	const active = reorderedVariants[safeIndex];
 
-	// Build <picture> srcset exactly like in WorkCard (ensure paths are absolute)
-	const webpSet = active?.srcsetWebp?.map(u => `${u.startsWith('/') ? u : '/' + u} ${u.match(/-w(\d+)\./)?.[1]}w`).join(', ');
-	const jpgSet = active?.srcsetJpg?.map(u => `${u.startsWith('/') ? u : '/' + u} ${u.match(/-w(\d+)\./)?.[1]}w`).join(', ');
-	const base = (active?.srcsetJpg?.find(u => /-w800\.jpg$/i.test(u)) || active?.srcsetJpg?.[0] || '').replace(/^([^/])/, '/$1');
+	// Build absolute paths for src/srcset and use width descriptors
+	const ensureAbsolutePath = (path) => {
+		if (!path) return '';
+		// Remove any relative path like images/works/... (must be /images/works/...)
+		return path.startsWith('/') ? path : `/${path}`;
+	};
+	
+	const buildSrcSet = (srcsetArray) => {
+		if (!Array.isArray(srcsetArray)) return '';
+		return srcsetArray
+			.map(src => {
+				const absolutePath = ensureAbsolutePath(src);
+				const widthMatch = src.match(/-w(\d+)\./);
+				const width = widthMatch ? widthMatch[1] : '';
+				return width ? `${absolutePath} ${width}w` : absolutePath;
+			})
+			.filter(Boolean)
+			.join(', ');
+	};
+	
+	const webpSet = buildSrcSet(active?.srcsetWebp);
+	const jpgSet = buildSrcSet(active?.srcsetJpg);
+	
+	// Find base image (prefer 800w, fallback to first available)
+	const baseImage = active?.srcsetJpg?.find(src => /-w800\.jpg$/i.test(src)) || active?.srcsetJpg?.[0];
+	const base = ensureAbsolutePath(baseImage);
 
 	return (
 		<div className="space-y-3" aria-roledescription="carousel" aria-label="Galerie produit">
-			<div className="relative">
+			{/* Stage container: relative w-full max-w-screen-lg mx-auto aspect-[3/4] md:aspect-[4/5] */}
+			<div className="relative w-full max-w-screen-lg mx-auto aspect-[3/4] md:aspect-[4/5]">
 				{base ? (
-					<picture>
-						<source type="image/webp" srcSet={webpSet} sizes="(min-width:1024px) 400px, 90vw" />
-						<source type="image/jpeg" srcSet={jpgSet} sizes="(min-width:1024px) 400px, 90vw" />
-						<img src={base} alt={title} className="w-full h-auto" loading="lazy" decoding="async" />
+					<picture className="absolute inset-0 w-full h-full">
+						<source type="image/webp" srcSet={webpSet} sizes="(min-width:1280px) 900px, (min-width:768px) 720px, 94vw" />
+						<source type="image/jpeg" srcSet={jpgSet} sizes="(min-width:1280px) 900px, (min-width:768px) 720px, 94vw" />
+						{/* Slide image: absolute inset-0 w-full h-full object-contain */}
+						<img src={base} alt={title} className="absolute inset-0 w-full h-full object-contain" loading="lazy" decoding="async" />
 					</picture>
 				) : null}
 				<div className="sr-only">Image {safeIndex + 1}/{count}</div>
@@ -51,6 +75,7 @@ export default function ProductCarousel({ slug, title }){
 					<button type="button" className="btn" onClick={goNext} aria-label="Suivant">›</button>
 				</div>
 			</div>
+			{/* Thumbnails below remain fixed small */}
 			<div className="grid grid-cols-6 gap-2">
 				{reorderedVariants.map((v, i) => (
 					<button key={i} className={`block border ${i === safeIndex ? 'border-blue-600' : 'border-transparent'}`} onClick={() => setIndex(i)} aria-selected={i === safeIndex}>
