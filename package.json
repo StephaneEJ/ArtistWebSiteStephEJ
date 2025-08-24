@@ -8,17 +8,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "export": "next export",
     "postbuild": "if [ -f public/_redirects ]; then mkdir -p out && cp public/_redirects out/_redirects; fi",
-    "deploy": "next build",
+    "deploy": "npm run ingest && npm run sitemap && next build",
     "ingest:images": "node scripts/ingest-images.mjs",
     "gen:sitemap": "node scripts/generate-sitemap.mjs",
     "start": "next start",
     "ingest": "node scripts/ingest-images.mjs",
-    "sitemap": "node scripts/generate-sitemap.mjs",
-    "build": "next build",
-    "export": "next export",
-    "deploy": "npm run ingest && npm run sitemap && next build && next export"
+    "sitemap": "node scripts/generate-sitemap.mjs"
   },
   "dependencies": {
     "next": "14.2.10",
