@@ -5,10 +5,3 @@ https://www.auraoncanvas.com/*    https://auraoncanvas.art/:splat  301!
 
 # Netlify Forms
 /api/*  /.netlify/functions/*  200
-
-# Handle form submissions
-/contact  /contact/  301
-/contact/success  /contact/success/  301
-
-# Fallback for SPA
-/*    /index.html   200
