@@ -3,12 +3,22 @@ import React from 'react';
 import manifest from '@/data/images.manifest.json';
 
 export default function ProductCarousel({ slug, title }){
-	const sorted = ((manifest?.[slug]?.variants) || [])
+	// Load manifest[slug].variants and sort ascending by mock
+	const variants = ((manifest?.[slug]?.variants) || [])
 		.slice()
-		.sort((a,b)=>a.mock-b.mock);
-	const variants = sorted.slice(0, 12);
+		.sort((a, b) => a.mock - b.mock);
+	
+	// First slide = mock 0 if available; next slides = 1,2,3...
+	// Reorder variants to prioritize mock 0
+	const reorderedVariants = [];
+	const mock0Variant = variants.find(v => v.mock === 0);
+	if (mock0Variant) {
+		reorderedVariants.push(mock0Variant);
+	}
+	reorderedVariants.push(...variants.filter(v => v.mock !== 0));
+	
 	const [index, setIndex] = React.useState(0);
-	const count = variants.length;
+	const count = reorderedVariants.length;
 	const safeIndex = index < count ? index : 0;
 
 	const goPrev = () => setIndex(i => (i - 1 + count) % count);
@@ -16,15 +26,12 @@ export default function ProductCarousel({ slug, title }){
 
 	if (!count) return null;
 
-	const active = variants[safeIndex];
+	const active = reorderedVariants[safeIndex];
 
-	const ensureLeadingSlash = (u) => !u ? '' : (u.startsWith('/') ? u : `/${u}`);
-	const buildSet = (arr) => (arr||[])
-		.map(u => `${ensureLeadingSlash(u)} ${u.match(/-w(\d+)\./)?.[1]}w`)
-		.join(', ');
-	const webpSet = buildSet(active?.srcsetWebp);
-	const jpgSet  = buildSet(active?.srcsetJpg);
-	const base    = ensureLeadingSlash((active?.srcsetJpg?.find(u=>/-w800\.jpg$/i.test(u)) || active?.srcsetJpg?.[0] || ''));
+	// Build <picture> srcset exactly like in WorkCard (ensure paths are absolute)
+	const webpSet = active?.srcsetWebp?.map(u => `${u.startsWith('/') ? u : '/' + u} ${u.match(/-w(\d+)\./)?.[1]}w`).join(', ');
+	const jpgSet = active?.srcsetJpg?.map(u => `${u.startsWith('/') ? u : '/' + u} ${u.match(/-w(\d+)\./)?.[1]}w`).join(', ');
+	const base = (active?.srcsetJpg?.find(u => /-w800\.jpg$/i.test(u)) || active?.srcsetJpg?.[0] || '').replace(/^([^/])/, '/$1');
 
 	return (
 		<div className="space-y-3" aria-roledescription="carousel" aria-label="Galerie produit">
@@ -32,7 +39,7 @@ export default function ProductCarousel({ slug, title }){
 				{base ? (
 					<picture>
 						<source type="image/webp" srcSet={webpSet} sizes="(min-width:1024px) 400px, 90vw" />
-						<source type="image/jpeg" srcSet={jpgSet}  sizes="(min-width:1024px) 400px, 90vw" />
+						<source type="image/jpeg" srcSet={jpgSet} sizes="(min-width:1024px) 400px, 90vw" />
 						<img src={base} alt={title} className="w-full h-auto" loading="lazy" decoding="async" />
 					</picture>
 				) : null}
@@ -45,9 +52,10 @@ export default function ProductCarousel({ slug, title }){
 				</div>
 			</div>
 			<div className="grid grid-cols-6 gap-2">
-				{variants.map((v, i) => (
-					<button key={i} className={`block border ${i===safeIndex?'border-blue-600':'border-transparent'}`} onClick={()=>setIndex(i)} aria-selected={i===safeIndex}>
-						<img src={ensureLeadingSlash(v.thumb)} alt="" className="w-full h-auto" />
+				{reorderedVariants.map((v, i) => (
+					<button key={i} className={`block border ${i === safeIndex ? 'border-blue-600' : 'border-transparent'}`} onClick={() => setIndex(i)} aria-selected={i === safeIndex}>
+						{/* Thumbnails use variant.thumb (ensure leading slash) */}
+						<img src={v.thumb.startsWith('/') ? v.thumb : '/' + v.thumb} alt="" className="w-full h-auto" />
 					</button>
 				))}
 			</div>
