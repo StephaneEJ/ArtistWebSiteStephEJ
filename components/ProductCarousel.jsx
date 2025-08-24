@@ -51,19 +51,19 @@ export default function ProductCarousel({ slug, title }){
 
 	return (
 		<div className="space-y-3" aria-roledescription="carousel" aria-label="Galerie produit">
-			{/* Stage container: hauteur fixe, largeur variable qui s'adapte au ratio */}
-			<div className="relative w-full max-w-screen-lg mx-auto h-96 md:h-[500px] lg:h-[600px] flex items-center justify-center">
+			{/* Stage container: largeur fixe, hauteur adaptative qui s'adapte au ratio de l'image */}
+			<div className="relative w-full max-w-screen-lg mx-auto bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden">
 				{base ? (
 					hasSrcset ? (
-						<picture className="w-full h-full flex items-center justify-center">
+						<picture className="w-full h-auto">
 							<source type="image/webp" srcSet={webpSet} sizes="(min-width:1280px) 900px, (min-width:768px) 720px, 94vw" />
 							<source type="image/jpeg" srcSet={jpgSet} sizes="(min-width:1280px) 900px, (min-width:768px) 720px, 94vw" />
-							{/* Image: hauteur max 100%, largeur auto pour garder le ratio */}
-							<img src={base} alt={title} className="max-h-full w-auto object-contain" loading="lazy" decoding="async" />
+							{/* Image: largeur 100%, hauteur auto pour garder le ratio */}
+							<img src={base} alt={title} className="w-full h-auto" loading="lazy" decoding="async" />
 						</picture>
 					) : (
 						/* Fallback to thumbnail when no srcset available */
-						<img src={base} alt={title} className="max-h-full w-auto object-contain" loading="lazy" decoding="async" />
+						<img src={base} alt={title} className="w-full h-auto" loading="lazy" decoding="async" />
 					)
 				) : null}
 				<div className="sr-only">Image {safeIndex + 1}/{count}</div>
