@@ -37,7 +37,10 @@ export default function WorkCard({ work, manifest = {} }){
 	// Use utility functions for srcset and base image
 	const webpSet = buildSrcSet(hero?.srcsetWebp);
 	const jpgSet = buildSrcSet(hero?.srcsetJpg);
-	const base = findBaseImage(hero?.srcsetJpg, '800');
+	
+	// Fallback to thumbnail if no srcset available
+	const hasSrcset = webpSet || jpgSet;
+	const base = hasSrcset ? findBaseImage(hero?.srcsetJpg, '800') : hero?.thumb;
 
 	return (
 		<figure className="card">
@@ -45,12 +48,17 @@ export default function WorkCard({ work, manifest = {} }){
 				{/* Wrapper: relative aspect-[4/5] w-full overflow-hidden rounded-lg */}
 				<div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg">
 					{base ? (
-						<picture className="absolute inset-0 w-full h-full">
-							<source type="image/webp" srcSet={webpSet} sizes="(min-width:1024px) 400px, 90vw" />
-							<source type="image/jpeg" srcSet={jpgSet} sizes="(min-width:1024px) 400px, 90vw" />
-							{/* Image inside: absolute inset-0 w-full h-full object-cover */}
+						hasSrcset ? (
+							<picture className="absolute inset-0 w-full h-full">
+								<source type="image/webp" srcSet={webpSet} sizes="(min-width:1024px) 400px, 90vw" />
+								<source type="image/jpeg" srcSet={jpgSet} sizes="(min-width:1024px) 400px, 90vw" />
+								{/* Image inside: absolute inset-0 w-full h-full object-cover */}
+								<img src={base} alt={work.alt||title} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover" />
+							</picture>
+						) : (
+							/* Fallback to thumbnail when no srcset available */
 							<img src={base} alt={work.alt||title} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover" />
-						</picture>
+						)
 					) : (
 						<img src="/placeholder.png" alt={title} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
 					)}
