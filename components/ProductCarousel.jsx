@@ -58,12 +58,12 @@ export default function ProductCarousel({ slug, title }){
 						<picture className="absolute inset-0 w-full h-full">
 							<source type="image/webp" srcSet={webpSet} sizes="(min-width:1280px) 900px, (min-width:768px) 720px, 94vw" />
 							<source type="image/jpeg" srcSet={jpgSet} sizes="(min-width:1280px) 900px, (min-width:768px) 720px, 94vw" />
-							{/* Slide image: absolute inset-0 w-full h-full object-contain */}
-							<img src={base} alt={title} className="absolute inset-0 w-full h-full object-contain" loading="lazy" decoding="async" />
+							{/* Slide image: absolute inset-0 w-full h-full object-cover */}
+							<img src={base} alt={title} className="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" />
 						</picture>
 					) : (
 						/* Fallback to thumbnail when no srcset available */
-						<img src={base} alt={title} className="absolute inset-0 w-full h-full object-contain" loading="lazy" decoding="async" />
+						<img src={base} alt={title} className="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" />
 					)
 				) : null}
 				<div className="sr-only">Image {safeIndex + 1}/{count}</div>
