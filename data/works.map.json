@@ -1,0 +1,7 @@
+[
+  { "key": "BLUE-1",  "slug": "blue-androgyne-no1", "title": "Blue Androgyne n°1", "etsyId": "4356254716" },
+  { "key": "BLUE-2",  "slug": "blue-androgyne-no2", "title": "Blue Androgyne n°2", "etsyId": "4357327064" },
+  { "key": "GREEN-1", "slug": "green-vision-no1",   "title": "Green Vision n°1",   "etsyId": "4357333122" },
+  { "key": "RED-1",   "slug": "red-vision-no1",     "title": "Red Vision n°1",     "etsyId": "4357351403" },
+  { "key": "RED-2",   "slug": "red-vision-no2",     "title": "Red Vision n°2",     "etsyId": "4357339158" }
+]
