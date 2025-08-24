@@ -10,7 +10,7 @@ export default function ContactPage(){
         method="POST" 
         data-netlify="true" 
         netlify-honeypot="bot-field"
-        action="/contact/success/"
+        action="/contact/success"
         className="space-y-4 bg-white dark:bg-[#151924] border border-neutral-200 dark:border-neutral-800 p-4 rounded-lg"
       >
         <input type="hidden" name="form-name" value="contact" />
