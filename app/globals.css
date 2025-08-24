@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Never use fixed heights on artwork images; use aspect wrappers instead. */
+
 html, body { height: 100%; }
 body { @apply bg-white text-neutral-900 dark:bg-[#0f1115] dark:text-[#e9eef5]; }
 .container { @apply w-full max-w-6xl mx-auto px-4; }
