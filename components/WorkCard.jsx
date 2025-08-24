@@ -2,6 +2,12 @@
 import React from 'react';
 import { trackEtsyClick } from '../utils/analytics';
 import EtsyButton from './EtsyButton';
+import manifest from '@/data/images.manifest.json';
+
+function pickHero(slug){
+  const v = (manifest && manifest[slug] && Array.isArray(manifest[slug].variants)) ? manifest[slug].variants : [];
+  return v.find(x => x.mock === 0) || v[0];
+}
 
 export default function WorkCard({ work, manifestEntry }){
 	const slug = work.slug;
@@ -9,14 +15,20 @@ export default function WorkCard({ work, manifestEntry }){
 	const etsyId = work.etsyId || '';
 	const buyUrl = etsyId ? `https://www.etsy.com/listing/${etsyId}?utm_source=site&utm_medium=product&utm_campaign=buy_on_etsy` : (work.buyUrl || '');
 
-	const variant = manifestEntry && Array.isArray(manifestEntry.variants) ? manifestEntry.variants[0] : null;
-	const thumb = variant && variant.thumb ? variant.thumb : null;
+	const hero = pickHero(slug);
+	const webpSet = hero?.srcsetWebp?.map(u => `${u.startsWith('/')?u:'/'+u} ${u.match(/-w(\d+)\./)?.[1]}w`).join(', ');
+	const jpgSet  = hero?.srcsetJpg ?.map(u => `${u.startsWith('/')?u:'/'+u} ${u.match(/-w(\d+)\./)?.[1]}w`).join(', ');
+	const base    = (hero?.srcsetJpg?.find(u=>/-w800\.jpg$/i.test(u)) || hero?.srcsetJpg?.[0] || '').replace(/^([^/])/,'/$1');
 
 	return (
 		<figure className="card">
 			<a href={`/oeuvre/${slug}`} aria-label={title}>
-				{thumb ? (
-					<img src={thumb} alt={title} loading="lazy" className="w-full" />
+				{base ? (
+					<picture>
+						<source type="image/webp" srcSet={webpSet} sizes="(min-width:1024px) 400px, 90vw" />
+						<source type="image/jpeg" srcSet={jpgSet}  sizes="(min-width:1024px) 400px, 90vw" />
+						<img src={base} alt={work.alt||title} loading="lazy" decoding="async" className="w-full" />
+					</picture>
 				) : (
 					<img src="/placeholder.png" alt={title} loading="lazy" className="w-full" />
 				)}
