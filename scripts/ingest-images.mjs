@@ -84,10 +84,10 @@ async function writeDerivatives(inputPath, outDir, baseName, widths, quality){
 	// Strip EXIF by default; add 72dpi metadata if requested
 	const base = SET_DPI_72 ? sharpBase.withMetadata({ density: 72 }) : sharpBase;
 
-	// thumb 600 square
+	// thumb 600 - garde le ratio original
 	await base
 		.clone()
-		.resize(600, 600, { fit: 'cover', position: 'centre' })
+		.resize(600, null, { fit: 'inside', withoutEnlargement: true })
 		.webp({ quality: Math.min(quality, 80) })
 		.toFile(path.join(outDir, `${baseName}-thumb600.webp`));
 
@@ -126,8 +126,8 @@ async function writeHeroWithOptionalWatermark(inputPath, outDir, baseName){
 		: base;
 	// Generate derivatives for hero widths only
 	await fs.mkdir(outDir, { recursive: true });
-	// thumb
-	await image.clone().resize(600,600,{fit:'cover'}).webp({quality:70}).toFile(path.join(outDir, `${baseName}-thumb600.webp`));
+	// thumb - garde le ratio original
+	await image.clone().resize(600, null, {fit:'inside', withoutEnlargement:true}).webp({quality:70}).toFile(path.join(outDir, `${baseName}-thumb600.webp`));
 	for (const w of HERO_WIDTHS){
 		await image.clone().resize({width:w, withoutEnlargement:true}).webp({quality:HERO_QUALITY}).toFile(path.join(outDir, `${baseName}-w${w}.webp`));
 		await image.clone().resize({width:w, withoutEnlargement:true}).jpeg({quality:HERO_QUALITY, progressive:true, mozjpeg:true}).toFile(path.join(outDir, `${baseName}-w${w}.jpg`));
