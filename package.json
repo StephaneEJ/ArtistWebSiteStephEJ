@@ -12,6 +12,7 @@
     "postbuild": "if [ -f public/_redirects ]; then mkdir -p out && cp public/_redirects out/_redirects; fi",
     "deploy": "next build",
     "ingest:images": "node scripts/ingest-images.mjs",
+    "gen:sitemap": "node scripts/generate-sitemap.mjs",
     "start": "next start"
   },
   "dependencies": {
