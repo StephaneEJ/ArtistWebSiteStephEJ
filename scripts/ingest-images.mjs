@@ -13,6 +13,7 @@ const OUTPUT_ROOT = 'public/images/works';
 const MAP_PATH = 'data/works.map.json';
 const MANIFEST_PATH = 'data/images.manifest.json';
 const WORKS_JSON_PATH = 'data/works.json';
+const PUBLIC_DATA_DIR = 'public/data';
 const WIDTHS = [480, 800, 1200, 1600];
 const WEBP_QUALITY = 82;
 const JPG_QUALITY = 82;
@@ -37,6 +38,12 @@ async function writeJson(filePath, obj) {
 	const json = JSON.stringify(obj, null, 2) + '\n';
 	await ensureDir(path.dirname(filePath));
 	await fs.writeFile(filePath, json, 'utf8');
+}
+
+async function writeJsonBoth(primaryPath, obj) {
+	await writeJson(primaryPath, obj);
+	const filename = path.basename(primaryPath);
+	await writeJson(path.join(PUBLIC_DATA_DIR, filename), obj);
 }
 
 function buildPublicPath(slug, filename) {
@@ -114,7 +121,7 @@ async function main() {
 		manifest[slug].variants.sort((a, b) => a.mock - b.mock);
 	}
 
-	await writeJson(MANIFEST_PATH, manifest);
+	await writeJsonBoth(MANIFEST_PATH, manifest);
 
 	// Build works.json from map
 	const works = [];
@@ -137,7 +144,7 @@ async function main() {
 	}
 	// Stable sort by slug
 	works.sort((a, b) => a.slug.localeCompare(b.slug));
-	await writeJson(WORKS_JSON_PATH, works);
+	await writeJsonBoth(WORKS_JSON_PATH, works);
 
 	console.log(`Ingestion complete. Processed ${rawFiles.length} RAW file(s). Manifest and works.json updated.`);
 }
