@@ -1,6 +1,7 @@
 export const metadata = { title: "Portfolio – Artiste", description: "Galerie, bio et vidéo d’exposition", metadataBase: new URL('https://auraoncanvas.art') };
 
 export default function RootLayout({ children }){
+  const version = process.env.NEXT_PUBLIC_APP_VERSION || 'dev';
   return (
     <html lang="fr" suppressHydrationWarning>
       <head>
@@ -10,7 +11,7 @@ export default function RootLayout({ children }){
         <CanonicalLink />
         <div className="header">
           <div className="container flex items-center justify-between py-3">
-            <a href="/" className="font-semibold">Nom de l’Artiste</a>
+            <a href="/" className="font-semibold">AuraOnCanvas.art</a>
             <nav className="nav flex items-center gap-4">
               <a href="/#galerie">Galerie</a>
               <a href="/#expo">Expo</a>
@@ -22,7 +23,7 @@ export default function RootLayout({ children }){
         </div>
         <main className="container py-8">{children}</main>
         <footer className="container py-8 border-t border-neutral-200 dark:border-neutral-800 text-sm text-neutral-600 dark:text-neutral-300">
-          © <span id="year"></span> Nom de l’Artiste — Tous droits réservés
+          © <span id="year"></span> AuraOnCanvas.art — Tous droits réservés · v{version}
           <script dangerouslySetInnerHTML={{__html:"document.getElementById('year').textContent=new Date().getFullYear()"}} />
         </footer>
       </body>
