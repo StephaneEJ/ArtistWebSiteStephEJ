@@ -51,27 +51,29 @@ export default function ProductCarousel({ slug, title }){
 
 	return (
 		<div className="space-y-3" aria-roledescription="carousel" aria-label="Galerie produit">
-			{/* Stage container: hauteur constante 600px, largeur adaptative */}
-			<div className="relative w-full h-[600px] flex items-center justify-center bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden">
-				{base ? (
-					hasSrcset ? (
-						<picture className="h-full flex items-center justify-center">
-							<source type="image/webp" srcSet={webpSet} sizes="(min-width:1280px) 900px, (min-width:768px) 720px, 94vw" />
-							<source type="image/jpeg" srcSet={jpgSet} sizes="(min-width:1280px) 900px, (min-width:768px) 720px, 94vw" />
-							{/* Image: hauteur max 100%, largeur auto pour garder le ratio */}
-							<img src={base} alt={title} className="max-h-full w-auto object-contain" loading="lazy" decoding="async" />
-						</picture>
-					) : (
-						/* Fallback to thumbnail when no srcset available */
-						<img src={base} alt={title} className="max-h-full w-auto object-contain" loading="lazy" decoding="async" />
-					)
-				) : null}
-				<div className="sr-only">Image {safeIndex + 1}/{count}</div>
-				<div className="absolute inset-y-0 left-0 flex items-center">
-					<button type="button" className="btn" onClick={goPrev} aria-label="Précédent">‹</button>
-				</div>
-				<div className="absolute inset-y-0 right-0 flex items-center">
-					<button type="button" className="btn" onClick={goNext} aria-label="Suivant">›</button>
+			{/* Stage container: hauteur fixe 600px, largeur adaptée au ratio de l'image */}
+			<div className="flex justify-center">
+				<div className="relative h-[600px] bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden">
+					{base ? (
+						hasSrcset ? (
+							<picture className="h-full block">
+								<source type="image/webp" srcSet={webpSet} sizes="(min-width:1280px) 900px, (min-width:768px) 720px, 94vw" />
+								<source type="image/jpeg" srcSet={jpgSet} sizes="(min-width:1280px) 900px, (min-width:768px) 720px, 94vw" />
+								{/* Image: hauteur 600px fixe, largeur auto pour garder le ratio */}
+								<img src={base} alt={title} className="h-[600px] w-auto object-contain" loading="lazy" decoding="async" />
+							</picture>
+						) : (
+							/* Fallback to thumbnail when no srcset available */
+							<img src={base} alt={title} className="h-[600px] w-auto object-contain" loading="lazy" decoding="async" />
+						)
+					) : null}
+					<div className="sr-only">Image {safeIndex + 1}/{count}</div>
+					<div className="absolute inset-y-0 left-0 flex items-center">
+						<button type="button" className="btn" onClick={goPrev} aria-label="Précédent">‹</button>
+					</div>
+					<div className="absolute inset-y-0 right-0 flex items-center">
+						<button type="button" className="btn" onClick={goNext} aria-label="Suivant">›</button>
+					</div>
 				</div>
 			</div>
 			{/* Thumbnails below remain fixed small */}

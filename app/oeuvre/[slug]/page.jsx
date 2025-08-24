@@ -25,20 +25,28 @@ export default function Page({params}){
   const hasVariants = entry && Array.isArray(entry.variants) && entry.variants.length>0;
   const fallbackImg = it.images && it.images[0] ? it.images[0] : null;
   return (
-    <article className="grid md:grid-cols-2 gap-6">
-      <div>
-        {hasVariants ? (
-          <ProductCarousel slug={params.slug} title={title} />
-        ) : (
-          fallbackImg ? <img src={fallbackImg} alt={it.alt||title} className="w-full rounded-lg border border-neutral-200 dark:border-neutral-800" /> : <div className="text-neutral-500">Aucune image disponible.</div>
-        )}
-      </div>
-      <div className="space-y-3">
-        <h1 className="text-3xl font-semibold">{title}</h1>
-        {it.alt && <p className="text-neutral-600 dark:text-neutral-300">{it.alt}</p>}
-        <div className="flex gap-3 pt-2">
-          <a href="/" className="btn">← Retour</a>
-          {buyUrl && <BuyEtsyButton href={buyUrl} slug={params.slug} />}
+    <article className="space-y-6">
+      <div className="flex flex-col lg:flex-row gap-6 items-start">
+        <div className="flex-shrink-0">
+          {hasVariants ? (
+            <ProductCarousel slug={params.slug} title={title} />
+          ) : (
+            fallbackImg ? (
+              <div className="flex justify-center">
+                <img src={fallbackImg} alt={it.alt||title} className="h-[600px] w-auto object-contain rounded-lg border border-neutral-200 dark:border-neutral-800" />
+              </div>
+            ) : (
+              <div className="text-neutral-500">Aucune image disponible.</div>
+            )
+          )}
+        </div>
+        <div className="space-y-3 lg:sticky lg:top-20">
+          <h1 className="text-3xl font-semibold">{title}</h1>
+          {it.alt && <p className="text-neutral-600 dark:text-neutral-300">{it.alt}</p>}
+          <div className="flex gap-3 pt-2">
+            <a href="/" className="btn">← Retour</a>
+            {buyUrl && <BuyEtsyButton href={buyUrl} slug={params.slug} />}
+          </div>
         </div>
       </div>
     </article>
