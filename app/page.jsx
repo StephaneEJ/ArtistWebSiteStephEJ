@@ -30,7 +30,6 @@ export default function Page(){
       <section className="text-center space-y-4">
         <h1 className="text-3xl md:text-5xl font-semibold">Œuvres originales & univers visuel</h1>
         <p className="text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">Découvrez une sélection de mes dernières créations, expositions et projets.</p>
-        <a href="#galerie" className="btn">Voir la galerie</a>
       </section>
       <section id="galerie">
         <h2 className="text-2xl font-semibold mb-4">Galerie</h2>
