@@ -45,22 +45,22 @@ export default function WorkCard({ work, manifest = {} }){
 	return (
 		<figure className="card">
 			<a href={`/oeuvre/${slug}`} aria-label={title}>
-				{/* Wrapper: largeur fixe, hauteur adaptative qui s'adapte au ratio de l'image */}
-				<div className="relative w-full overflow-hidden rounded-lg bg-neutral-100 dark:bg-neutral-800">
+				{/* Conteneur: hauteur fixe 400px, largeur variable selon le ratio de l'image */}
+				<div className="relative h-[400px] overflow-hidden rounded-lg bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center">
 					{base ? (
 						hasSrcset ? (
-							<picture className="w-full h-auto">
+							<picture className="h-full flex items-center justify-center">
 								<source type="image/webp" srcSet={webpSet} sizes="(min-width:1024px) 400px, 90vw" />
 								<source type="image/jpeg" srcSet={jpgSet} sizes="(min-width:1024px) 400px, 90vw" />
-								{/* Image: largeur 100%, hauteur auto pour garder le ratio */}
-								<img src={base} alt={work.alt||title} loading="lazy" decoding="async" className="w-full h-auto" />
+								{/* Image: hauteur 100%, largeur auto pour garder le ratio */}
+								<img src={base} alt={work.alt||title} loading="lazy" decoding="async" className="h-full w-auto object-contain" />
 							</picture>
 						) : (
 							/* Fallback to thumbnail when no srcset available */
-							<img src={base} alt={work.alt||title} loading="lazy" decoding="async" className="w-full h-auto" />
+							<img src={base} alt={work.alt||title} loading="lazy" decoding="async" className="h-full w-auto object-contain" />
 						)
 					) : (
-						<img src="/placeholder.png" alt={title} loading="lazy" className="w-full h-auto" />
+						<img src="/placeholder.png" alt={title} loading="lazy" className="h-full w-auto object-contain" />
 					)}
 				</div>
 			</a>
