@@ -1,13 +1,22 @@
 [build]
-  command = "npm run deploy"
   publish = "out"
+  command = "npm run build"
 
-[build.environment]
-  NODE_VERSION = "20"
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
 
-[dev]
-  command = "npm run dev"
-  port = 3000
-  targetPort = 3000
+[context.production.environment]
+  NODE_ENV = "production"
 
-# No Next.js runtime plugin needed for static export
+# Configuration Netlify Forms
+[[headers]]
+  for = "/contact"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+
+# Configuration pour l'envoi d'emails (sera configuré dans l'interface Netlify)
+# Dans l'interface Netlify : Settings > Forms > Form notifications > Add notification > Email
+# Email: stephmyej+FormulaireContactSiteWeb@gmail.com

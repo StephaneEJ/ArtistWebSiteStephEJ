@@ -9,7 +9,7 @@ export default function ContactPage(){
         name="contact" 
         method="POST" 
         data-netlify="true" 
-        netlify-honeypot="bot-field"
+        data-netlify-honeypot="bot-field"
         action="/contact/success"
         className="space-y-4 bg-white dark:bg-[#151924] border border-neutral-200 dark:border-neutral-800 p-4 rounded-lg"
       >
