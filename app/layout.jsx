@@ -1,7 +1,7 @@
 export const metadata = { title: "Portfolio – Artiste", description: "Galerie, bio et vidéo d’exposition", metadataBase: new URL('https://auraoncanvas.art') };
 
 export default function RootLayout({ children }){
-  const version = process.env.NEXT_PUBLIC_APP_VERSION || 'dev';
+  const version = pkg.version || 'dev';
   return (
     <html lang="fr" suppressHydrationWarning>
       <head>
@@ -33,3 +33,4 @@ export default function RootLayout({ children }){
 import ThemeToggle from "../components/ThemeToggle";
 import "./globals.css";
 import CanonicalLink from "./CanonicalLink";
+import pkg from "../package.json";
