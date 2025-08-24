@@ -1,4 +1,3 @@
-'use client';
 import WorkCard from "./WorkCard";
 
 export default function Gallery({ works = [], manifest = {} }){
