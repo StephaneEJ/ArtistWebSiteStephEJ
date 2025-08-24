@@ -28,7 +28,7 @@ export default function Page({params}){
     <article className="grid md:grid-cols-2 gap-6">
       <div>
         {hasVariants ? (
-          <ProductCarousel manifestEntry={entry} title={title} />
+          <ProductCarousel slug={params.slug} title={title} />
         ) : (
           fallbackImg ? <img src={fallbackImg} alt={it.alt||title} className="w-full rounded-lg border border-neutral-200 dark:border-neutral-800" /> : <div className="text-neutral-500">Aucune image disponible.</div>
         )}
