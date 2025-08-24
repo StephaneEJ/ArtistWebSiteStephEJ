@@ -23,3 +23,6 @@ Thumbs.db
 # Editor
 .vscode/
 .idea/
+# Do not version heavy RAW files
+assets/raw/**
+!assets/raw/.keep
