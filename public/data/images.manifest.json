@@ -1,1 +1,512 @@
-{}
+{
+  "blue-androgyne-no1": {
+    "title": "Blue Androgyne n°1",
+    "etsyId": "4356254716",
+    "variants": [
+      {
+        "mock": 1,
+        "baseName": "blue-androgyne-no1-M1",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no1/blue-androgyne-no1-M1-thumb600.webp"
+      },
+      {
+        "mock": 2,
+        "baseName": "blue-androgyne-no1-M2",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no1/blue-androgyne-no1-M2-thumb600.webp"
+      },
+      {
+        "mock": 3,
+        "baseName": "blue-androgyne-no1-M3",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no1/blue-androgyne-no1-M3-thumb600.webp"
+      },
+      {
+        "mock": 4,
+        "baseName": "blue-androgyne-no1-M4",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no1/blue-androgyne-no1-M4-thumb600.webp"
+      }
+    ]
+  },
+  "blue-androgyne-no2": {
+    "title": "Blue Androgyne n°2",
+    "etsyId": "4357327064",
+    "variants": [
+      {
+        "mock": 1,
+        "baseName": "blue-androgyne-no2-M1",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no2/blue-androgyne-no2-M1-thumb600.webp"
+      },
+      {
+        "mock": 2,
+        "baseName": "blue-androgyne-no2-M2",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no2/blue-androgyne-no2-M2-thumb600.webp"
+      },
+      {
+        "mock": 3,
+        "baseName": "blue-androgyne-no2-M3",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no2/blue-androgyne-no2-M3-thumb600.webp"
+      },
+      {
+        "mock": 4,
+        "baseName": "blue-androgyne-no2-M4",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no2/blue-androgyne-no2-M4-thumb600.webp"
+      }
+    ]
+  },
+  "blue-androgyne-no3": {
+    "title": "blue-androgyne-no3",
+    "etsyId": "",
+    "variants": [
+      {
+        "mock": 1,
+        "baseName": "blue-androgyne-no3-M1",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no3/blue-androgyne-no3-M1-thumb600.webp"
+      },
+      {
+        "mock": 2,
+        "baseName": "blue-androgyne-no3-M2",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no3/blue-androgyne-no3-M2-thumb600.webp"
+      },
+      {
+        "mock": 3,
+        "baseName": "blue-androgyne-no3-M3",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no3/blue-androgyne-no3-M3-thumb600.webp"
+      },
+      {
+        "mock": 4,
+        "baseName": "blue-androgyne-no3-M4",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no3/blue-androgyne-no3-M4-thumb600.webp"
+      }
+    ]
+  },
+  "blue-androgyne-no4": {
+    "title": "blue-androgyne-no4",
+    "etsyId": "",
+    "variants": [
+      {
+        "mock": 1,
+        "baseName": "blue-androgyne-no4-M1",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no4/blue-androgyne-no4-M1-thumb600.webp"
+      },
+      {
+        "mock": 2,
+        "baseName": "blue-androgyne-no4-M2",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no4/blue-androgyne-no4-M2-thumb600.webp"
+      },
+      {
+        "mock": 3,
+        "baseName": "blue-androgyne-no4-M3",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no4/blue-androgyne-no4-M3-thumb600.webp"
+      },
+      {
+        "mock": 4,
+        "baseName": "blue-androgyne-no4-M4",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no4/blue-androgyne-no4-M4-thumb600.webp"
+      }
+    ]
+  },
+  "blue-androgyne-no5": {
+    "title": "blue-androgyne-no5",
+    "etsyId": "",
+    "variants": [
+      {
+        "mock": 1,
+        "baseName": "blue-androgyne-no5-M1",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no5/blue-androgyne-no5-M1-thumb600.webp"
+      },
+      {
+        "mock": 2,
+        "baseName": "blue-androgyne-no5-M2",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no5/blue-androgyne-no5-M2-thumb600.webp"
+      },
+      {
+        "mock": 3,
+        "baseName": "blue-androgyne-no5-M3",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no5/blue-androgyne-no5-M3-thumb600.webp"
+      },
+      {
+        "mock": 4,
+        "baseName": "blue-androgyne-no5-M4",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no5/blue-androgyne-no5-M4-thumb600.webp"
+      }
+    ]
+  },
+  "blue-androgyne-no6": {
+    "title": "blue-androgyne-no6",
+    "etsyId": "",
+    "variants": [
+      {
+        "mock": 1,
+        "baseName": "blue-androgyne-no6-M1",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no6/blue-androgyne-no6-M1-thumb600.webp"
+      },
+      {
+        "mock": 2,
+        "baseName": "blue-androgyne-no6-M2",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no6/blue-androgyne-no6-M2-thumb600.webp"
+      },
+      {
+        "mock": 3,
+        "baseName": "blue-androgyne-no6-M3",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no6/blue-androgyne-no6-M3-thumb600.webp"
+      },
+      {
+        "mock": 4,
+        "baseName": "blue-androgyne-no6-M4",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no6/blue-androgyne-no6-M4-thumb600.webp"
+      }
+    ]
+  },
+  "blue-androgyne-no7": {
+    "title": "blue-androgyne-no7",
+    "etsyId": "",
+    "variants": [
+      {
+        "mock": 1,
+        "baseName": "blue-androgyne-no7-M1",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no7/blue-androgyne-no7-M1-thumb600.webp"
+      },
+      {
+        "mock": 2,
+        "baseName": "blue-androgyne-no7-M2",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no7/blue-androgyne-no7-M2-thumb600.webp"
+      },
+      {
+        "mock": 3,
+        "baseName": "blue-androgyne-no7-M3",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no7/blue-androgyne-no7-M3-thumb600.webp"
+      },
+      {
+        "mock": 4,
+        "baseName": "blue-androgyne-no7-M4",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/blue-androgyne-no7/blue-androgyne-no7-M4-thumb600.webp"
+      }
+    ]
+  },
+  "green-vision-no1": {
+    "title": "Green Vision n°1",
+    "etsyId": "4357333122",
+    "variants": [
+      {
+        "mock": 1,
+        "baseName": "green-vision-no1-M1",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/green-vision-no1/green-vision-no1-M1-thumb600.webp"
+      },
+      {
+        "mock": 2,
+        "baseName": "green-vision-no1-M2",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/green-vision-no1/green-vision-no1-M2-thumb600.webp"
+      },
+      {
+        "mock": 3,
+        "baseName": "green-vision-no1-M3",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/green-vision-no1/green-vision-no1-M3-thumb600.webp"
+      },
+      {
+        "mock": 4,
+        "baseName": "green-vision-no1-M4",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/green-vision-no1/green-vision-no1-M4-thumb600.webp"
+      }
+    ]
+  },
+  "green-vision-no2": {
+    "title": "green-vision-no2",
+    "etsyId": "",
+    "variants": [
+      {
+        "mock": 1,
+        "baseName": "green-vision-no2-M1",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/green-vision-no2/green-vision-no2-M1-thumb600.webp"
+      },
+      {
+        "mock": 2,
+        "baseName": "green-vision-no2-M2",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/green-vision-no2/green-vision-no2-M2-thumb600.webp"
+      },
+      {
+        "mock": 3,
+        "baseName": "green-vision-no2-M3",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/green-vision-no2/green-vision-no2-M3-thumb600.webp"
+      },
+      {
+        "mock": 4,
+        "baseName": "green-vision-no2-M4",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/green-vision-no2/green-vision-no2-M4-thumb600.webp"
+      }
+    ]
+  },
+  "green-vision-no3": {
+    "title": "green-vision-no3",
+    "etsyId": "",
+    "variants": [
+      {
+        "mock": 1,
+        "baseName": "green-vision-no3-M1",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/green-vision-no3/green-vision-no3-M1-thumb600.webp"
+      },
+      {
+        "mock": 2,
+        "baseName": "green-vision-no3-M2",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/green-vision-no3/green-vision-no3-M2-thumb600.webp"
+      },
+      {
+        "mock": 3,
+        "baseName": "green-vision-no3-M3",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/green-vision-no3/green-vision-no3-M3-thumb600.webp"
+      },
+      {
+        "mock": 4,
+        "baseName": "green-vision-no3-M4",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/green-vision-no3/green-vision-no3-M4-thumb600.webp"
+      }
+    ]
+  },
+  "green-vision-no4": {
+    "title": "green-vision-no4",
+    "etsyId": "",
+    "variants": [
+      {
+        "mock": 1,
+        "baseName": "green-vision-no4-M1",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/green-vision-no4/green-vision-no4-M1-thumb600.webp"
+      },
+      {
+        "mock": 2,
+        "baseName": "green-vision-no4-M2",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/green-vision-no4/green-vision-no4-M2-thumb600.webp"
+      },
+      {
+        "mock": 3,
+        "baseName": "green-vision-no4-M3",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/green-vision-no4/green-vision-no4-M3-thumb600.webp"
+      },
+      {
+        "mock": 4,
+        "baseName": "green-vision-no4-M4",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/green-vision-no4/green-vision-no4-M4-thumb600.webp"
+      }
+    ]
+  },
+  "red-vision-no1": {
+    "title": "Red Vision n°1",
+    "etsyId": "4357351403",
+    "variants": [
+      {
+        "mock": 1,
+        "baseName": "red-vision-no1-M1",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/red-vision-no1/red-vision-no1-M1-thumb600.webp"
+      },
+      {
+        "mock": 2,
+        "baseName": "red-vision-no1-M2",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/red-vision-no1/red-vision-no1-M2-thumb600.webp"
+      },
+      {
+        "mock": 3,
+        "baseName": "red-vision-no1-M3",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/red-vision-no1/red-vision-no1-M3-thumb600.webp"
+      },
+      {
+        "mock": 4,
+        "baseName": "red-vision-no1-M4",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/red-vision-no1/red-vision-no1-M4-thumb600.webp"
+      }
+    ]
+  },
+  "red-vision-no2": {
+    "title": "Red Vision n°2",
+    "etsyId": "4357339158",
+    "variants": [
+      {
+        "mock": 1,
+        "baseName": "red-vision-no2-M1",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/red-vision-no2/red-vision-no2-M1-thumb600.webp"
+      },
+      {
+        "mock": 2,
+        "baseName": "red-vision-no2-M2",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/red-vision-no2/red-vision-no2-M2-thumb600.webp"
+      },
+      {
+        "mock": 3,
+        "baseName": "red-vision-no2-M3",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/red-vision-no2/red-vision-no2-M3-thumb600.webp"
+      },
+      {
+        "mock": 4,
+        "baseName": "red-vision-no2-M4",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/red-vision-no2/red-vision-no2-M4-thumb600.webp"
+      }
+    ]
+  },
+  "red-vision-no3": {
+    "title": "red-vision-no3",
+    "etsyId": "",
+    "variants": [
+      {
+        "mock": 1,
+        "baseName": "red-vision-no3-M1",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/red-vision-no3/red-vision-no3-M1-thumb600.webp"
+      },
+      {
+        "mock": 2,
+        "baseName": "red-vision-no3-M2",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/red-vision-no3/red-vision-no3-M2-thumb600.webp"
+      },
+      {
+        "mock": 3,
+        "baseName": "red-vision-no3-M3",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/red-vision-no3/red-vision-no3-M3-thumb600.webp"
+      },
+      {
+        "mock": 4,
+        "baseName": "red-vision-no3-M4",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/red-vision-no3/red-vision-no3-M4-thumb600.webp"
+      }
+    ]
+  },
+  "red-vision-no4": {
+    "title": "red-vision-no4",
+    "etsyId": "",
+    "variants": [
+      {
+        "mock": 1,
+        "baseName": "red-vision-no4-M1",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/red-vision-no4/red-vision-no4-M1-thumb600.webp"
+      },
+      {
+        "mock": 2,
+        "baseName": "red-vision-no4-M2",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/red-vision-no4/red-vision-no4-M2-thumb600.webp"
+      },
+      {
+        "mock": 3,
+        "baseName": "red-vision-no4-M3",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/red-vision-no4/red-vision-no4-M3-thumb600.webp"
+      },
+      {
+        "mock": 4,
+        "baseName": "red-vision-no4-M4",
+        "srcsetWebp": [],
+        "srcsetJpg": [],
+        "thumb": "/images/works/red-vision-no4/red-vision-no4-M4-thumb600.webp"
+      }
+    ]
+  }
+}
