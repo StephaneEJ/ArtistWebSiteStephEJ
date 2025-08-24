@@ -18,6 +18,12 @@ function pickHero(slug){
   // Sort ascending by mock
   const sortedVariants = normalizedVariants.sort((a, b) => a.mock - b.mock);
   
+  // Validate: log mock order for debugging
+  if (process.env.NODE_ENV === 'development') {
+    const mockOrder = sortedVariants.map(v => v.mock);
+    console.log(`[WorkCard] ${slug} variants order:`, mockOrder);
+  }
+  
   // Pick the item with mock === 0 if present; otherwise the first one
   return sortedVariants.find(v => v.mock === 0) || sortedVariants[0];
 }

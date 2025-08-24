@@ -9,6 +9,12 @@ export default function ProductCarousel({ slug, title }){
 		.slice()
 		.sort((a, b) => a.mock - b.mock);
 	
+	// Validate: log mock order for debugging
+	if (process.env.NODE_ENV === 'development') {
+		const mockOrder = variants.map(v => v.mock);
+		console.log(`[ProductCarousel] ${slug} variants order:`, mockOrder);
+	}
+	
 	// First slide = mock 0 if available; next slides = 1,2,3...
 	// Reorder variants to prioritize mock 0
 	const reorderedVariants = [];
@@ -17,6 +23,12 @@ export default function ProductCarousel({ slug, title }){
 		reorderedVariants.push(mock0Variant);
 	}
 	reorderedVariants.push(...variants.filter(v => v.mock !== 0));
+	
+	// Validate: log final order for debugging
+	if (process.env.NODE_ENV === 'development') {
+		const finalOrder = reorderedVariants.map(v => v.mock);
+		console.log(`[ProductCarousel] ${slug} final order:`, finalOrder);
+	}
 	
 	const [index, setIndex] = React.useState(0);
 	const count = reorderedVariants.length;
