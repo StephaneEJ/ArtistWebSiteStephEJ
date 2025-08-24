@@ -1,7 +1,7 @@
 {
   "name": "artist-next-site",
   "private": true,
-  "version": "1.0.16",
+  "version": "1.0.17",
   "engines": {
     "node": ">=20.0.0"
   },

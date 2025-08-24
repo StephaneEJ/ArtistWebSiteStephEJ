@@ -13,7 +13,7 @@ export default function RootLayout({ children }){
       <head>
         <script defer data-domain="auraoncanvas.art" src="https://plausible.io/js/script.js"></script>
       </head>
-      <body className="min-h-screen">
+      <body className="min-h-screen pt-14">
         <CanonicalLink />
         <div className="header">
           <div className="container flex items-center justify-between py-3">
