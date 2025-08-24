@@ -1,4 +1,4 @@
-export const metadata = { title: "Portfolio – Artiste", description: "Galerie, bio et vidéo d’exposition" };
+export const metadata = { title: "Portfolio – Artiste", description: "Galerie, bio et vidéo d’exposition", metadataBase: new URL('https://auraoncanvas.art') };
 
 export default function RootLayout({ children }){
   return (
@@ -7,6 +7,7 @@ export default function RootLayout({ children }){
         <script dangerouslySetInnerHTML={{__html:`(function(){try{const ls=localStorage.getItem('theme');const m=window.matchMedia('(prefers-color-scheme: dark)');const d=ls==='dark'||(!ls&&m.matches);document.documentElement.classList.toggle('dark',d);}catch(e){}})();`}} />
       </head>
       <body className="min-h-screen">
+        <CanonicalLink />
         <div className="header">
           <div className="container flex items-center justify-between py-3">
             <a href="/" className="font-semibold">Nom de l’Artiste</a>
@@ -30,3 +31,4 @@ export default function RootLayout({ children }){
 }
 import ThemeToggle from "../components/ThemeToggle";
 import "./globals.css";
+import CanonicalLink from "./CanonicalLink";
