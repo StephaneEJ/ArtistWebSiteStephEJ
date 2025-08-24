@@ -30,3 +30,8 @@ assets/raw/**
 # local backups
 *.zip
 *.z0*
+
+# backups
+*.zip
+*.z0*
+*.sha256
