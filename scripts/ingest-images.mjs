@@ -29,10 +29,11 @@ const WATERMARK_TEXT = 'AURA ON CANVAS';           // change if needed
 // ---- Filename patterns ----
 // Canvas files (your screenshot shows "BLUE-1-1.jpeg" etc):
 // Accepts "BLUE-1-1.jpg" or "BLUE-1.jpg" or "BLUE1-1.jpg"
-const canvasRe = /^(BLUE|GREEN|RED)-?(\d+)-(?:1|C\d+)?\.(png|jpe?g)$/i;
+// Now also accepts IDENTITY series
+const canvasRe = /^(BLUE|GREEN|RED|IDENTITY|LION)-?(\d+)(?:-(\d+|C\d+))?\.(png|jpe?g)$/i;
 
 // Mockups "BLUE-1-M3.png" etc.
-const mockupRe = /^(BLUE|GREEN|RED)-?(\d+)-M(\d+)\.(png|jpe?g)$/i;
+const mockupRe = /^(BLUE|GREEN|RED|IDENTITY|LION)-?(\d+)-M(\d+)\.(png|jpe?g)$/i;
 
 // Read mapping key -> slug/title/etsyId
 let map = [];
@@ -43,7 +44,13 @@ try {
 }
 
 // Fallback for slug if mapping is missing
-const seriesSlugPrefix = { BLUE:'blue-androgyne-no', GREEN:'green-vision-no', RED:'red-vision-no' };
+const seriesSlugPrefix = { 
+	BLUE:'blue-androgyne-no', 
+	GREEN:'green-vision-no', 
+	RED:'red-vision-no',
+	IDENTITY:'identity-no',
+	LION:'lion-no' 
+};
 
 function buildPublicPath(slug, filename) {
 	return `/images/works/${slug}/${filename}`;
